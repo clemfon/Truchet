@@ -13,16 +13,26 @@ class TileDrawer():
         (x,y)=center
         return [(x-r,y-r),(x+r,y+r)]
 
-    def draw(self):
+    def draw_up(self):
         a = self.a
         b = self.b
         r = 25
         theta2 = (self.theta+45)*math.pi/180
-        theta3 = (self.theta+225)*math.pi/180
         c = (50*a+25+2**0.5*r*math.cos(theta2),50*b+25+2**0.5*r*math.sin(theta2))
-        c2 = (50*a+25+2**0.5*r*math.cos(theta3),50*b+25+2**0.5*r*math.sin(theta3))
         self.ctx.arc(self.get_box(r,c),start = 180+self.theta, end=self.theta+270, fill="green")
-        self.ctx.arc(self.get_box(r,c2),start = self.theta, end=self.theta+90, fill="green")
+
+    def draw_down(self):
+        a = self.a
+        b = self.b
+        r = 25
+        theta2 = (self.theta+225)*math.pi/180
+        c = (50*a+25+2**0.5*r*math.cos(theta2),50*b+25+2**0.5*r*math.sin(theta2))
+        self.ctx.arc(self.get_box(r,c),start = self.theta, end=self.theta+90, fill="green")
+
+    def draw(self):
+        self.draw_up()
+        self.draw_down()
+
 
 class TruchetDrawer():
     def __init__(self):
