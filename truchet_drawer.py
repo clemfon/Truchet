@@ -53,6 +53,6 @@ class TruchetDrawer():
 
 
 
-TruchetDrawer().make_image('test4')
+TruchetDrawer().make_image('test5')
 
 
